@@ -30,8 +30,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef rqt_image_view__ImageView_H
-#define rqt_image_view__ImageView_H
+#ifndef rqt_interactive_image_view__ImageView_H
+#define rqt_interactive_image_view__ImageView_H
 
 #include <rqt_gui_cpp/plugin.h>
 
@@ -55,7 +55,7 @@
 
 #include <vector>
 
-namespace rqt_image_view {
+namespace rqt_interactive_image_view {
 
 class ImageView
   : public rqt_gui_cpp::Plugin
@@ -158,4 +158,4 @@ private:
 
 }
 
-#endif // rqt_image_view__ImageView_H
+#endif // rqt_interactive_image_view__ImageView_H

@@ -30,12 +30,12 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <rqt_image_view/ratio_layouted_frame.h>
+#include <rqt_interactive_image_view/ratio_layouted_frame.h>
 
 #include <assert.h>
 #include <QMouseEvent>
 
-namespace rqt_image_view {
+namespace rqt_interactive_image_view {
 
 RatioLayoutedFrame::RatioLayoutedFrame(QWidget* parent, Qt::WindowFlags flags)
   : QFrame()

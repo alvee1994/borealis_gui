@@ -30,7 +30,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <rqt_image_view/image_view.h>
+#include <rqt_interactive_image_view/image_view.h>
 
 #include <pluginlib/class_list_macros.h>
 #include <ros/master.h>
@@ -43,7 +43,7 @@
 #include <QMessageBox>
 #include <QPainter>
 
-namespace rqt_image_view {
+namespace rqt_interactive_image_view {
 
 ImageView::ImageView()
   : rqt_gui_cpp::Plugin()
@@ -68,6 +68,7 @@ void ImageView::initPlugin(qt_gui_cpp::PluginContext& context)
   setColorSchemeList();
   ui_.color_scheme_combo_box->setCurrentIndex(ui_.color_scheme_combo_box->findText("Gray"));
 
+  // connect is used for communication between objects using Signals and Slots.
   updateTopicList();
   ui_.topics_combo_box->setCurrentIndex(ui_.topics_combo_box->findText(""));
   connect(ui_.topics_combo_box, SIGNAL(currentIndexChanged(int)), this, SLOT(onTopicChanged(int)));
@@ -76,13 +77,17 @@ void ImageView::initPlugin(qt_gui_cpp::PluginContext& context)
   connect(ui_.refresh_topics_push_button, SIGNAL(pressed()), this, SLOT(updateTopicList()));
 
   ui_.zoom_1_push_button->setIcon(QIcon::fromTheme("zoom-original"));
-  connect(ui_.zoom_1_push_button, SIGNAL(toggled(bool)), this, SLOT(onZoom1(bool)));
 
+  connect(ui_.zoom_1_push_button, SIGNAL(toggled(bool)), this, SLOT(onZoom1(bool)));
+  
+  
   connect(ui_.dynamic_range_check_box, SIGNAL(toggled(bool)), this, SLOT(onDynamicRange(bool)));
 
+  
   ui_.save_as_image_push_button->setIcon(QIcon::fromTheme("document-save-as"));
   connect(ui_.save_as_image_push_button, SIGNAL(pressed()), this, SLOT(saveImage()));
 
+ 
   connect(ui_.num_gridlines_spin_box, SIGNAL(valueChanged(int)), this, SLOT(updateNumGridlines()));
 
   // set topic name if passed in as argument
@@ -115,6 +120,14 @@ void ImageView::initPlugin(qt_gui_cpp::PluginContext& context)
   hide_toolbar_action_->setCheckable(true);
   ui_.image_frame->addAction(hide_toolbar_action_);
   connect(hide_toolbar_action_, SIGNAL(toggled(bool)), this, SLOT(onHideToolbarChanged(bool)));
+
+  // hiding widgets LV
+  // ui_.zoom_1_push_button->hide();
+  // ui_.dynamic_range_check_box->hide();
+  // ui_.save_as_image_push_button->hide();
+  // ui_.num_gridlines_spin_box->hide();
+  // ui_.max_range_double_spin_box->hide();
+  // ui_.smooth_image_check_box->hide();
 }
 
 void ImageView::shutdownPlugin()
@@ -664,4 +677,4 @@ void ImageView::callbackImage(const sensor_msgs::Image::ConstPtr& msg)
 }
 }
 
-PLUGINLIB_EXPORT_CLASS(rqt_image_view::ImageView, rqt_gui_cpp::Plugin)
+PLUGINLIB_EXPORT_CLASS(rqt_interactive_image_view::ImageView, rqt_gui_cpp::Plugin)
