@@ -1,5 +1,13 @@
 {
     "files.associations": {
         "variant": "cpp"
-    }
+    },
+    "python.autoComplete.extraPaths": [
+        "/home/lv/ROS/ros-noetic-ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/lv/ROS/ros-noetic-ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ]
 }
