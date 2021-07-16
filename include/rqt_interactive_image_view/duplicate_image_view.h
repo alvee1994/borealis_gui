@@ -77,7 +77,7 @@ public:
 
 protected slots:
 
-  virtual void setColorSchemeList();
+  // virtual void setColorSchemeList();
 
   virtual void updateTopicList();
 
@@ -94,13 +94,13 @@ protected slots:
 
   virtual void onTopicChanged(int index);
 
-  virtual void onZoom1(bool checked);
+  // virtual void onZoom1(bool checked);
 
-  virtual void onDynamicRange(bool checked);
+  // virtual void onDynamicRange(bool checked);
 
   virtual void saveImage();
 
-  virtual void updateNumGridlines();
+  // virtual void updateNumGridlines();
 
   virtual void onMousePublish(bool checked);
 
@@ -110,18 +110,18 @@ protected slots:
 
   virtual void onHideToolbarChanged(bool hide);
 
-  virtual void onRotateLeft();
-  virtual void onRotateRight();
+  // virtual void onRotateLeft();
+  // virtual void onRotateRight();
 
 protected:
 
   virtual void callbackImage(const sensor_msgs::Image::ConstPtr& msg);
 
-  virtual void invertPixels(int x, int y);
+  // virtual void invertPixels(int x, int y);
 
-  QList<int> getGridIndices(int size) const;
+  // QList<int> getGridIndices(int size) const;
 
-  virtual void overlayGrid();
+  // virtual void overlayGrid();
 
   Ui::ImageViewWidget ui_;
 

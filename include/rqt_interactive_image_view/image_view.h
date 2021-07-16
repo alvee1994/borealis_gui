@@ -54,6 +54,7 @@
 #include <QWidget>
 
 #include <vector>
+#include <memory>
 
 namespace rqt_interactive_image_view {
 
@@ -71,51 +72,51 @@ public:
 
   virtual void shutdownPlugin();
 
-  virtual void saveSettings(qt_gui_cpp::Settings& plugin_settings, qt_gui_cpp::Settings& instance_settings) const;
+  // virtual void saveSettings(qt_gui_cpp::Settings& plugin_settings, qt_gui_cpp::Settings& instance_settings) const;
 
-  virtual void restoreSettings(const qt_gui_cpp::Settings& plugin_settings, const qt_gui_cpp::Settings& instance_settings);
+  // virtual void restoreSettings(const qt_gui_cpp::Settings& plugin_settings, const qt_gui_cpp::Settings& instance_settings);
 
-protected slots:
+// protected slots:
 
-  // virtual void setColorSchemeList();
+//   // virtual void setColorSchemeList();
 
-  virtual void updateTopicList();
+//   virtual void updateTopicList();
 
-protected:
+// protected:
 
-  // deprecated function for backward compatibility only, use getTopics() instead
-  ROS_DEPRECATED virtual QList<QString> getTopicList(const QSet<QString>& message_types, const QList<QString>& transports);
+//   // deprecated function for backward compatibility only, use getTopics() instead
+//   ROS_DEPRECATED virtual QList<QString> getTopicList(const QSet<QString>& message_types, const QList<QString>& transports);
 
-  virtual QSet<QString> getTopics(const QSet<QString>& message_types, const QSet<QString>& message_sub_types, const QList<QString>& transports);
+//   virtual QSet<QString> getTopics(const QSet<QString>& message_types, const QSet<QString>& message_sub_types, const QList<QString>& transports);
 
-  virtual void selectTopic(const QString& topic);
+//   virtual void selectTopic(const QString& topic);
 
-protected slots:
+// protected slots:
 
-  virtual void onTopicChanged(int index);
+//   virtual void onTopicChanged(int index);
 
-  // virtual void onZoom1(bool checked);
+//   // virtual void onZoom1(bool checked);
 
-  // virtual void onDynamicRange(bool checked);
+//   // virtual void onDynamicRange(bool checked);
 
-  virtual void saveImage();
+//   virtual void saveImage();
 
-  // virtual void updateNumGridlines();
+//   // virtual void updateNumGridlines();
 
-  virtual void onMousePublish(bool checked);
+//   virtual void onMousePublish(bool checked);
 
-  virtual void onMouseLeft(int x, int y);
+//   virtual void onMouseLeft(int x, int y);
 
-  virtual void onPubTopicChanged();
+//   virtual void onPubTopicChanged();
 
-  virtual void onHideToolbarChanged(bool hide);
+//   virtual void onHideToolbarChanged(bool hide);
 
-  // virtual void onRotateLeft();
-  // virtual void onRotateRight();
+//   // virtual void onRotateLeft();
+//   // virtual void onRotateRight();
 
-protected:
+// protected:
 
-  virtual void callbackImage(const sensor_msgs::Image::ConstPtr& msg);
+//   virtual void callbackImage(const sensor_msgs::Image::ConstPtr& msg);
 
   // virtual void invertPixels(int x, int y);
 
@@ -142,7 +143,7 @@ private:
     ROTATE_STATE_COUNT
   };
 
-  void syncRotateLabel();
+  // void syncRotateLabel();
 
   QString arg_topic_name;
   ros::Publisher pub_mouse_left_;

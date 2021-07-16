@@ -17,11 +17,13 @@ endif()
 set(rqt_interactive_image_view_SRCS
   src/rqt_interactive_image_view/image_view.cpp
   src/rqt_interactive_image_view/ratio_layouted_frame.cpp
+  src/rqt_interactive_image_view/interactive_components.cpp
 )
 
 set(rqt_interactive_image_view_HDRS
   include/rqt_interactive_image_view/image_view.h
   include/rqt_interactive_image_view/ratio_layouted_frame.h
+  include/rqt_interactive_image_view/interactive_components.h
 )
 
 set(rqt_interactive_image_view_UIS
