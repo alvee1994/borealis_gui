@@ -34,8 +34,8 @@
 #define rqt_interactive_image_view__ImageView_H
 
 #include <rqt_gui_cpp/plugin.h>
-
 #include <ui_image_view.h>
+
 
 #include <image_transport/image_transport.h>
 #include <ros/package.h>
@@ -52,6 +52,7 @@
 #include <QSet>
 #include <QSize>
 #include <QWidget>
+#include <QTabWidget>
 
 #include <vector>
 #include <memory>

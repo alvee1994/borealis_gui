@@ -1,6 +1,5 @@
 #include <rqt_interactive_image_view/interactive_components.h>
 
-namespace rqt_interactive_image_view{
 
 void debugPrint(int lineNumber){
   std::cout << "this is line " << lineNumber << std::endl;
@@ -10,7 +9,7 @@ ImageInteractiveLayout::ImageInteractiveLayout(){
   std::cout << "initiated image interactive\n";
 };
 
-void ImageInteractiveLayout::initLayout(Ui::ImageViewWidget& theui, QWidget* widget, ros::NodeHandlePtr rosNode, ImageView* contextId){
+void ImageInteractiveLayout::initLayout(Ui::ImageViewWidget& theui, QWidget* widget, ros::NodeHandlePtr rosNode, rqt_interactive_image_view::ImageView* contextId){
 
   
     // toolbar widget -> qvboxlayout -> qhboxlayout -> [qcombobox, qpushbutton, qpushbutton]
@@ -30,13 +29,13 @@ void ImageInteractiveLayout::initLayout(Ui::ImageViewWidget& theui, QWidget* wid
   vertical_layout_cover->addLayout(horizontal_layout_bottom);
 
   this->addLayout(vertical_layout_cover);
-  theui.horizontalLayout->addLayout(this);
+  theui.verticalLayout->addLayout(this);
 
   setConnections(contextId);
 
 };
 
-void ImageInteractiveLayout::setConnections(ImageView* contextId){
+void ImageInteractiveLayout::setConnections(rqt_interactive_image_view::ImageView* contextId){
   updateTopicList();
   this->topics_combo_box->setCurrentIndex(this->topics_combo_box->findText(""));
   connect(this->topics_combo_box, SIGNAL(currentIndexChanged(int)), this, SLOT(onTopicChanged(int)));
@@ -101,7 +100,7 @@ void ImageInteractiveLayout::setBottomHorizontalLayout(){
 }
 
 void ImageInteractiveLayout::setImageFrame(){
-  image_frame = new RatioLayoutedFrame(scroll_area_widget_contents);
+  image_frame = new rqt_interactive_image_view::RatioLayoutedFrame(scroll_area_widget_contents);
   image_frame->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
   image_frame->setMinimumSize(80, 60);
   image_frame->setContextMenuPolicy(Qt::ActionsContextMenu);
@@ -408,4 +407,3 @@ ImageInteractiveLayout::~ImageInteractiveLayout(){
 
   // delete image_frame;
 };
-}

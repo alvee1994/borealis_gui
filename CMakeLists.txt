@@ -5,7 +5,9 @@ project(rqt_interactive_image_view)
 add_compile_options(-std=c++11)
 
 # Load catkin and all dependencies required for this package
-find_package(catkin REQUIRED COMPONENTS rqt_gui rqt_gui_cpp image_transport sensor_msgs geometry_msgs cv_bridge)
+find_package(catkin REQUIRED COMPONENTS rqt_gui rqt_gui_cpp image_transport sensor_msgs geometry_msgs cv_bridge rviz)
+find_package(Boost REQUIRED COMPONENTS program_options)
+link_directories(${Boost_LIBRARY_DIRS})
 
 if("${qt_gui_cpp_USE_QT_MAJOR_VERSION} " STREQUAL "5 ")
   find_package(Qt5Widgets REQUIRED)
@@ -18,13 +20,17 @@ set(rqt_interactive_image_view_SRCS
   src/rqt_interactive_image_view/image_view.cpp
   src/rqt_interactive_image_view/ratio_layouted_frame.cpp
   src/rqt_interactive_image_view/interactive_components.cpp
+  src/interactive_rqt_rviz/rviz.cpp 
+  src/interactive_rqt_rviz/config_dialog.cpp
 )
 
 set(rqt_interactive_image_view_HDRS
   include/rqt_interactive_image_view/image_view.h
   include/rqt_interactive_image_view/ratio_layouted_frame.h
   include/rqt_interactive_image_view/interactive_components.h
-)
+  include/interactive_rqt_rviz/rviz.h
+  include/interactive_rqt_rviz/config_dialog.h
+  )
 
 set(rqt_interactive_image_view_UIS
   resource/image_view.ui
@@ -41,7 +47,7 @@ endif()
 catkin_package(
   INCLUDE_DIRS ${rqt_interactive_image_view_INCLUDE_DIRECTORIES}
   LIBRARIES ${PROJECT_NAME}
-  CATKIN_DEPENDS rqt_gui rqt_gui_cpp image_transport sensor_msgs cv_bridge geometry_msgs
+  CATKIN_DEPENDS rqt_gui rqt_gui_cpp image_transport sensor_msgs cv_bridge geometry_msgs rviz
 )
 catkin_python_setup()
 
@@ -60,9 +66,9 @@ else()
 endif()
 set(CMAKE_CURRENT_BINARY_DIR "${_cmake_current_binary_dir}")
 
-include_directories(${rqt_interactive_image_view_INCLUDE_DIRECTORIES} ${catkin_INCLUDE_DIRS})
+include_directories(${rqt_interactive_image_view_INCLUDE_DIRECTORIES} ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
 add_library(${PROJECT_NAME} ${rqt_interactive_image_view_SRCS} ${rqt_interactive_image_view_MOCS} ${rqt_interactive_image_view_UIS_H})
-target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${Boost_LIBRARIES})
 if("${qt_gui_cpp_USE_QT_MAJOR_VERSION} " STREQUAL "5 ")
   target_link_libraries(${PROJECT_NAME} Qt5::Widgets)
 else()

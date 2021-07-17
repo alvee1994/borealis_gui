@@ -32,6 +32,7 @@
 
 #include <rqt_interactive_image_view/image_view.h>
 #include <rqt_interactive_image_view/interactive_components.h>
+#include <interactive_rqt_rviz/rviz.h>
 
 #include <pluginlib/class_list_macros.h>
 #include <ros/master.h>
@@ -67,10 +68,11 @@ void ImageView::initPlugin(qt_gui_cpp::PluginContext& context)
   }
   context.addWidget(widget_);
 
-  hide_toolbar_action_ = new QAction(tr("Hide toolbar"), this);
-  hide_toolbar_action_->setCheckable(false);
+  
 
-  // ros::NodeHandle node(getNodeHandle());
+  // hide_toolbar_action_ = new QAction(tr("Hide toolbar"), this);
+  // hide_toolbar_action_->setCheckable(false);
+
   ros::NodeHandlePtr node = boost::make_shared<ros::NodeHandle>(getNodeHandle());
   image_transport::ImageTransport it(*node);
 
@@ -82,6 +84,15 @@ void ImageView::initPlugin(qt_gui_cpp::PluginContext& context)
 
   ImageInteractiveLayout* mylayout_C = new ImageInteractiveLayout();
   mylayout_C->initLayout(ui_, widget_, node, this);
+
+  // QTabWidget* tab = new QTabWidget();
+  // ui_.horizontalLayout->addWidget(tab);
+
+  interactive_rqt_rviz::RViz* rvizFrame = new interactive_rqt_rviz::RViz();
+  rvizFrame->initPlugin(context);
+
+  ui_.horizontalLayout->addWidget(rvizFrame->rvizFrameWidget_, 2);
+  
 };
 
 

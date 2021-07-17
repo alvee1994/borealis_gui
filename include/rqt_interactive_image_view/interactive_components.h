@@ -37,7 +37,7 @@
 #include <QMessageBox>
 #include <QPainter>
 
-namespace rqt_interactive_image_view {
+
 
 class ImageInteractiveLayout : public QVBoxLayout {
 
@@ -45,12 +45,12 @@ class ImageInteractiveLayout : public QVBoxLayout {
 
     public:
         ImageInteractiveLayout();
-        void initLayout(Ui::ImageViewWidget& theui, QWidget* widget, ros::NodeHandlePtr rosNode, ImageView* contextId);
+        void initLayout(Ui::ImageViewWidget& theui, QWidget* widget, ros::NodeHandlePtr rosNode, rqt_interactive_image_view::ImageView* contextId);
         void setImageFrame();
         void setScrollWidget();
         void setBottomHorizontalLayout();
         void setTopHorizontalLayout();
-        void setConnections(ImageView* contextId);
+        void setConnections(rqt_interactive_image_view::ImageView* contextId);
 
         ~ImageInteractiveLayout();
 
@@ -66,7 +66,7 @@ class ImageInteractiveLayout : public QVBoxLayout {
         QWidget* scroll_area_widget_contents;
         QHBoxLayout* horizontal_layout_image;
 
-        RatioLayoutedFrame* image_frame;
+        rqt_interactive_image_view::RatioLayoutedFrame* image_frame;
 
     public slots:
         void onTopicChanged(int index);
@@ -99,4 +99,4 @@ class ImageInteractiveLayout : public QVBoxLayout {
         
 };
 
-}
+
