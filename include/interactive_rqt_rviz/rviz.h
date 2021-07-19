@@ -72,7 +72,6 @@ public:
   virtual bool eventFilter(QObject* watched, QEvent* event);
 
 public:
-  void parseArguments();
   QHBoxLayout* box;
   QPushButton* button1;
   QDockWidget* widget_;

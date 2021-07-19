@@ -68,8 +68,6 @@ void RViz::initPlugin(qt_gui_cpp::PluginContext& context)
 {
   context_ = &context;
 
-  parseArguments();
-
   // prevent output of Ogre stuff to console
   Ogre::LogManager* log_manager = Ogre::LogManager::getSingletonPtr();
   if (!log_manager)
@@ -123,60 +121,6 @@ void RViz::initPlugin(qt_gui_cpp::PluginContext& context)
   rvizFrameWidget_->installEventFilter(this);
   
 
-}
-
-void RViz::parseArguments()
-{
-  namespace po = boost::program_options;
-
-  const QStringList& qargv = context_->argv();
-
-  const int argc = qargv.count();
-
-  // temporary storage for args obtained from qargv - since each QByteArray
-  // owns its storage, we need to keep these around until we're done parsing
-  // args using boost::program_options
-  std::vector<QByteArray> argv_array;
-  std::vector<const char *> argv(argc+1);
-  argv[0] = ""; // dummy program name
-
-  for (int i = 0; i < argc; ++i)
-  {
-    argv_array.push_back(qargv.at(i).toLocal8Bit());
-    argv[i+1] = argv_array[i].constData();
-  }
-
-  po::variables_map vm;
-  po::options_description options;
-  options.add_options()
-    ("display-config,d", po::value<std::string>(), "")
-    ("hide-menu,m", "")
-    ("ogre-log,l", "");
-
-  try
-  {
-    po::store(po::parse_command_line(argc+1, argv.data(), options), vm);
-    po::notify(vm);
-
-    if (vm.count("hide-menu"))
-    {
-      hide_menu_ = true;
-    }
-
-    if (vm.count("display-config"))
-    {
-      display_config_ = vm["display-config"].as<std::string>();
-    }
-
-    if (vm.count("ogre-log"))
-    {
-      ogre_log_ = true;
-    }
-  }
-  catch (std::exception& e)
-  {
-    ROS_ERROR("Error parsing command line: %s", e.what());
-  }
 }
 
 void RViz::saveSettings(qt_gui_cpp::Settings& plugin_settings,
