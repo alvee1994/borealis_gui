@@ -32,7 +32,6 @@
 
 #include <rqt_interactive_image_view/image_view.h>
 #include <rqt_interactive_image_view/interactive_components.h>
-#include <interactive_rqt_rviz/rviz.h>
 
 #include <pluginlib/class_list_macros.h>
 #include <ros/master.h>
@@ -40,6 +39,7 @@
 
 #include <cv_bridge/cv_bridge.h>
 #include <opencv2/imgproc/imgproc.hpp>
+#include <boost/program_options.hpp>
 
 #include <QFileDialog>
 #include <QMessageBox>
@@ -88,11 +88,68 @@ void ImageView::initPlugin(qt_gui_cpp::PluginContext& context)
   // QTabWidget* tab = new QTabWidget();
   // ui_.horizontalLayout->addWidget(tab);
 
-  interactive_rqt_rviz::RViz* rvizFrame = new interactive_rqt_rviz::RViz();
+  boost::shared_ptr<interactive_rqt_rviz::RViz> rvizFrame = boost::make_shared<interactive_rqt_rviz::RViz>();
+  parseArguments(context, rvizFrame);
   rvizFrame->initPlugin(context);
 
   ui_.horizontalLayout->addWidget(rvizFrame->rvizFrameWidget_, 2);
   
+};
+
+void ImageView::parseArguments(qt_gui_cpp::PluginContext& context, boost::shared_ptr<interactive_rqt_rviz::RViz> rvizF)
+{
+  namespace po = boost::program_options;
+
+  const QStringList& qargv = context.argv();
+
+  const int argc = qargv.count();
+
+  // temporary storage for args obtained from qargv - since each QByteArray
+  // owns its storage, we need to keep these around until we're done parsing
+  // args using boost::program_options
+  std::vector<QByteArray> argv_array;
+  std::vector<const char *> argv(argc+1);
+  argv[0] = ""; // dummy program name
+
+  for (int i = 0; i < argc; ++i)
+  {
+    argv_array.push_back(qargv.at(i).toLocal8Bit());
+    argv[i+1] = argv_array[i].constData();
+  }
+
+  po::variables_map vm;
+  po::options_description options;
+  options.add_options()
+    ("display-config,d", po::value<std::string>(), "")
+    ("topic,t", po::value<std::string>(), "")
+    ("hide-menu,m", "")
+    ("ogre-log,l", "");
+
+
+  try
+  {
+    po::store(po::parse_command_line(argc+1, argv.data(), options), vm);
+    po::notify(vm);
+
+    if (vm.count("hide-menu"))
+    {
+      rvizF->hide_menu_ = true;
+    }
+
+    if (vm.count("display-config"))
+    {
+      rvizF->display_config_ = vm["display-config"].as<std::string>();
+    }
+
+    if (vm.count("ogre-log"))
+    {
+      rvizF->ogre_log_ = true;
+    }
+  }
+  catch (std::exception& e)
+  {
+    ROS_ERROR("Error parsing command line: %s", e.what());
+  }
 };
 
 
