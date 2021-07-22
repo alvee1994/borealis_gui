@@ -5,21 +5,11 @@ void debugPrint(int lineNumber){
   std::cout << "this is line " << lineNumber << std::endl;
 };
 
-ImageInteractiveLayout::ImageInteractiveLayout(){
+ImageInteractiveLayout::ImageInteractiveLayout(QWidget* widget, ros::NodeHandlePtr rosNode)
+: node(rosNode),
+  parentWidget(widget)
+{
   std::cout << "initiated image interactive\n";
-};
-
-void ImageInteractiveLayout::initLayout(Ui::ImageViewWidget& theui, QWidget* widget, ros::NodeHandlePtr rosNode, rqt_interactive_image_view::ImageView* contextId){
-
-  
-    // toolbar widget -> qvboxlayout -> qhboxlayout -> [qcombobox, qpushbutton, qpushbutton]
-    //                               -> qhboxlayout -> [scrollarea, qwidget, [qhboxlayout -> ratiolayoutedframe]]
-
-
-
-  //
-  node = rosNode;
-  parentWidget = widget;
   vertical_layout_cover = new QVBoxLayout();
 
   setTopHorizontalLayout();
@@ -29,13 +19,20 @@ void ImageInteractiveLayout::initLayout(Ui::ImageViewWidget& theui, QWidget* wid
   vertical_layout_cover->addLayout(horizontal_layout_bottom);
 
   this->addLayout(vertical_layout_cover);
-  theui.verticalLayout->addLayout(this);
+  setConnections();
+};
 
-  setConnections(contextId);
+void ImageInteractiveLayout::initLayout(Ui::ImageViewWidget& theui, QWidget* widget, ros::NodeHandlePtr rosNode){
+  
+  // toolbar widget -> qvboxlayout -> qhboxlayout -> [qcombobox, qpushbutton, qpushbutton]
+  //                               -> qhboxlayout -> [scrollarea, qwidget, [qhboxlayout -> ratiolayoutedframe]]
+
+  //
+
 
 };
 
-void ImageInteractiveLayout::setConnections(rqt_interactive_image_view::ImageView* contextId){
+void ImageInteractiveLayout::setConnections(){
   updateTopicList();
   this->topics_combo_box->setCurrentIndex(this->topics_combo_box->findText(""));
   connect(this->topics_combo_box, SIGNAL(currentIndexChanged(int)), this, SLOT(onTopicChanged(int)));
@@ -131,6 +128,9 @@ void ImageInteractiveLayout::restoreSettings(const qt_gui_cpp::Settings& plugin_
   QString topic = instance_settings.value("topic", "").toString();
   selectTopic(topic);
 };
+
+
+
 
 void ImageInteractiveLayout::selectTopic(const QString& topic)
 {
@@ -381,29 +381,10 @@ void ImageInteractiveLayout::callbackImage(const sensor_msgs::Image::ConstPtr& m
   // image must be copied since it uses the conversion_mat_ for storage which is asynchronously overwritten in the next callback invocation
   QImage image(conversion_mat_.data, conversion_mat_.cols, conversion_mat_.rows, conversion_mat_.step[0], QImage::Format_RGB888);
   this->image_frame->setImage(image);
-
-  // if (!this->zoom_1_push_button->isEnabled())
-  // {
-  //   this->zoom_1_push_button->setEnabled(true);
-  // }
-  // Need to update the zoom 1 every new image in case the image aspect ratio changed,
-  // though could check and see if the aspect ratio changed or not.
-  // onZoom1(this->zoom_1_push_button->isChecked());
 }
 
 ImageInteractiveLayout::~ImageInteractiveLayout(){
   std::cout << "image interactive layout destructor " << this << "\n";
-  // delete vertical_layout_cover;
-  // delete horizontal_layout_top;
-
-  // delete topics_combo_box;
-  // delete refresh_topics_button;
-  // delete save_as_image;
-
-  // delete horizontal_layout_bottom;
-  // delete scroll_area;
-  // delete scroll_area_widget_contents;
-  // delete horizontal_layout_image;
-
-  // delete image_frame;
+  subscriber_.shutdown();
+  pub_mouse_left_.shutdown();
 };

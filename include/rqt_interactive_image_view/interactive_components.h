@@ -22,6 +22,8 @@
 #include <QComboBox>
 #include <QScrollArea>
 #include <QPushButton>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
 
 #include <vector>
 #include <memory>
@@ -44,13 +46,13 @@ class ImageInteractiveLayout : public QVBoxLayout {
     Q_OBJECT
 
     public:
-        ImageInteractiveLayout();
-        void initLayout(Ui::ImageViewWidget& theui, QWidget* widget, ros::NodeHandlePtr rosNode, rqt_interactive_image_view::ImageView* contextId);
+        ImageInteractiveLayout(QWidget* widget, ros::NodeHandlePtr rosNode);
+        void initLayout(Ui::ImageViewWidget& theui, QWidget* widget, ros::NodeHandlePtr rosNode);
         void setImageFrame();
         void setScrollWidget();
         void setBottomHorizontalLayout();
         void setTopHorizontalLayout();
-        void setConnections(rqt_interactive_image_view::ImageView* contextId);
+        void setConnections();
 
         ~ImageInteractiveLayout();
 

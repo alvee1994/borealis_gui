@@ -72,27 +72,30 @@ void ImageView::initPlugin(qt_gui_cpp::PluginContext& context)
 
   // hide_toolbar_action_ = new QAction(tr("Hide toolbar"), this);
   // hide_toolbar_action_->setCheckable(false);
-
   ros::NodeHandlePtr node = boost::make_shared<ros::NodeHandle>(getNodeHandle());
   image_transport::ImageTransport it(*node);
 
-  ImageInteractiveLayout* mylayout_A = new ImageInteractiveLayout();
-  mylayout_A->initLayout(ui_, widget_, node, this);
+  ImageInteractiveLayout* mylayout_A = new ImageInteractiveLayout(widget_, node);
+  ImageInteractiveLayout* mylayout_B = new ImageInteractiveLayout(widget_, node);
+  ImageInteractiveLayout* mylayout_C = new ImageInteractiveLayout(widget_, node);
 
-  ImageInteractiveLayout* mylayout_B = new ImageInteractiveLayout();
-  mylayout_B->initLayout(ui_, widget_, node, this);
-
-  ImageInteractiveLayout* mylayout_C = new ImageInteractiveLayout();
-  mylayout_C->initLayout(ui_, widget_, node, this);
-
-  // QTabWidget* tab = new QTabWidget();
-  // ui_.horizontalLayout->addWidget(tab);
+  ui_.verticalLayout->addLayout(mylayout_A);
+  ui_.verticalLayout->addLayout(mylayout_B);
+  ui_.verticalLayout->addLayout(mylayout_C);
 
   boost::shared_ptr<interactive_rqt_rviz::RViz> rvizFrame = boost::make_shared<interactive_rqt_rviz::RViz>();
   parseArguments(context, rvizFrame);
   rvizFrame->initPlugin(context);
 
-  ui_.horizontalLayout->addWidget(rvizFrame->rvizFrameWidget_, 2);
+  QTabWidget* tab = new QTabWidget();
+  tab->addTab(rvizFrame->rvizFrameWidget_, "RViz");
+
+  ImageInteractiveLayout* myTabLayout_D = new ImageInteractiveLayout(widget_, node);
+  tab->addTab(myTabLayout_D->scroll_area, "image_viewer");
+
+  ui_.horizontalLayout->addWidget(tab, 2);
+
+
   
 };
 
@@ -155,8 +158,9 @@ void ImageView::parseArguments(qt_gui_cpp::PluginContext& context, boost::shared
 
 void ImageView::shutdownPlugin()
 {
-  subscriber_.shutdown();
-  pub_mouse_left_.shutdown();
+  // subscriber_.shutdown();
+  // pub_mouse_left_.shutdown();
+  std::cout << "shutting down plugin\n";
 };
 }
 
