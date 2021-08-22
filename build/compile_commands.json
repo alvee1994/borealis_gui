@@ -1,0 +1,109 @@
+[
+{
+  "directory": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build",
+  "command": "/bin/clang++-10  -DBOOST_ALL_NO_LIB -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"borealis_gui\\\" -Dborealis_gui_EXPORTS -I../include -Idevel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4 -I/usr/include/eigen3 -I/usr/include/OGRE/Overlay -I/usr/include/OGRE -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++  -Wl,--no-undefined -g -fPIC   -std=c++11 -fPIC -o CMakeFiles/borealis_gui.dir/src/main_gui.cpp.o -c /home/lv/ROS/ros-noetic-ws/src/borealis_gui/src/main_gui.cpp",
+  "file": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/src/main_gui.cpp"
+},
+
+{
+  "directory": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build",
+  "command": "/bin/clang++-10  -DBOOST_ALL_NO_LIB -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"borealis_gui\\\" -Dborealis_gui_EXPORTS -I../include -Idevel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4 -I/usr/include/eigen3 -I/usr/include/OGRE/Overlay -I/usr/include/OGRE -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++  -Wl,--no-undefined -g -fPIC   -std=c++11 -fPIC -o CMakeFiles/borealis_gui.dir/src/image_frame/ratio_layouted_frame.cpp.o -c /home/lv/ROS/ros-noetic-ws/src/borealis_gui/src/image_frame/ratio_layouted_frame.cpp",
+  "file": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/src/image_frame/ratio_layouted_frame.cpp"
+},
+
+{
+  "directory": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build",
+  "command": "/bin/clang++-10  -DBOOST_ALL_NO_LIB -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"borealis_gui\\\" -Dborealis_gui_EXPORTS -I../include -Idevel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4 -I/usr/include/eigen3 -I/usr/include/OGRE/Overlay -I/usr/include/OGRE -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++  -Wl,--no-undefined -g -fPIC   -std=c++11 -fPIC -o CMakeFiles/borealis_gui.dir/src/image_frame/image_interactive_layout.cpp.o -c /home/lv/ROS/ros-noetic-ws/src/borealis_gui/src/image_frame/image_interactive_layout.cpp",
+  "file": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/src/image_frame/image_interactive_layout.cpp"
+},
+
+{
+  "directory": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build",
+  "command": "/bin/clang++-10  -DBOOST_ALL_NO_LIB -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"borealis_gui\\\" -Dborealis_gui_EXPORTS -I../include -Idevel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4 -I/usr/include/eigen3 -I/usr/include/OGRE/Overlay -I/usr/include/OGRE -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++  -Wl,--no-undefined -g -fPIC   -std=c++11 -fPIC -o CMakeFiles/borealis_gui.dir/src/borealis_rviz/rviz.cpp.o -c /home/lv/ROS/ros-noetic-ws/src/borealis_gui/src/borealis_rviz/rviz.cpp",
+  "file": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/src/borealis_rviz/rviz.cpp"
+},
+
+{
+  "directory": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build",
+  "command": "/bin/clang++-10  -DBOOST_ALL_NO_LIB -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"borealis_gui\\\" -Dborealis_gui_EXPORTS -I../include -Idevel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4 -I/usr/include/eigen3 -I/usr/include/OGRE/Overlay -I/usr/include/OGRE -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++  -Wl,--no-undefined -g -fPIC   -std=c++11 -fPIC -o CMakeFiles/borealis_gui.dir/src/borealis_rviz/config_dialog.cpp.o -c /home/lv/ROS/ros-noetic-ws/src/borealis_gui/src/borealis_rviz/config_dialog.cpp",
+  "file": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/src/borealis_rviz/config_dialog.cpp"
+},
+
+{
+  "directory": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build",
+  "command": "/bin/clang++-10  -DBOOST_ALL_NO_LIB -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"borealis_gui\\\" -Dborealis_gui_EXPORTS -I../include -Idevel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4 -I/usr/include/eigen3 -I/usr/include/OGRE/Overlay -I/usr/include/OGRE -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++  -Wl,--no-undefined -g -fPIC   -std=c++11 -fPIC -o CMakeFiles/borealis_gui.dir/src/borealis_pages/borealis_map_and_drone/borealis_map_and_drone.cpp.o -c /home/lv/ROS/ros-noetic-ws/src/borealis_gui/src/borealis_pages/borealis_map_and_drone/borealis_map_and_drone.cpp",
+  "file": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/src/borealis_pages/borealis_map_and_drone/borealis_map_and_drone.cpp"
+},
+
+{
+  "directory": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build",
+  "command": "/bin/clang++-10  -DBOOST_ALL_NO_LIB -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"borealis_gui\\\" -Dborealis_gui_EXPORTS -I../include -Idevel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4 -I/usr/include/eigen3 -I/usr/include/OGRE/Overlay -I/usr/include/OGRE -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++  -Wl,--no-undefined -g -fPIC   -std=c++11 -fPIC -o CMakeFiles/borealis_gui.dir/src/borealis_pages/borealis_smart_glove/borealis_smart_glove.cpp.o -c /home/lv/ROS/ros-noetic-ws/src/borealis_gui/src/borealis_pages/borealis_smart_glove/borealis_smart_glove.cpp",
+  "file": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/src/borealis_pages/borealis_smart_glove/borealis_smart_glove.cpp"
+},
+
+{
+  "directory": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build",
+  "command": "/bin/clang++-10  -DBOOST_ALL_NO_LIB -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"borealis_gui\\\" -Dborealis_gui_EXPORTS -I../include -Idevel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4 -I/usr/include/eigen3 -I/usr/include/OGRE/Overlay -I/usr/include/OGRE -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++  -Wl,--no-undefined -g -fPIC   -std=c++11 -fPIC -o CMakeFiles/borealis_gui.dir/include/moc_main_gui.cpp.o -c /home/lv/ROS/ros-noetic-ws/src/borealis_gui/build/include/moc_main_gui.cpp",
+  "file": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build/include/moc_main_gui.cpp"
+},
+
+{
+  "directory": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build",
+  "command": "/bin/clang++-10  -DBOOST_ALL_NO_LIB -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"borealis_gui\\\" -Dborealis_gui_EXPORTS -I../include -Idevel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4 -I/usr/include/eigen3 -I/usr/include/OGRE/Overlay -I/usr/include/OGRE -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++  -Wl,--no-undefined -g -fPIC   -std=c++11 -fPIC -o CMakeFiles/borealis_gui.dir/include/image_frame/moc_ratio_layouted_frame.cpp.o -c /home/lv/ROS/ros-noetic-ws/src/borealis_gui/build/include/image_frame/moc_ratio_layouted_frame.cpp",
+  "file": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build/include/image_frame/moc_ratio_layouted_frame.cpp"
+},
+
+{
+  "directory": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build",
+  "command": "/bin/clang++-10  -DBOOST_ALL_NO_LIB -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"borealis_gui\\\" -Dborealis_gui_EXPORTS -I../include -Idevel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4 -I/usr/include/eigen3 -I/usr/include/OGRE/Overlay -I/usr/include/OGRE -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++  -Wl,--no-undefined -g -fPIC   -std=c++11 -fPIC -o CMakeFiles/borealis_gui.dir/include/image_frame/moc_image_interactive_layout.cpp.o -c /home/lv/ROS/ros-noetic-ws/src/borealis_gui/build/include/image_frame/moc_image_interactive_layout.cpp",
+  "file": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build/include/image_frame/moc_image_interactive_layout.cpp"
+},
+
+{
+  "directory": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build",
+  "command": "/bin/clang++-10  -DBOOST_ALL_NO_LIB -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"borealis_gui\\\" -Dborealis_gui_EXPORTS -I../include -Idevel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4 -I/usr/include/eigen3 -I/usr/include/OGRE/Overlay -I/usr/include/OGRE -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++  -Wl,--no-undefined -g -fPIC   -std=c++11 -fPIC -o CMakeFiles/borealis_gui.dir/include/borealis_rviz/moc_rviz.cpp.o -c /home/lv/ROS/ros-noetic-ws/src/borealis_gui/build/include/borealis_rviz/moc_rviz.cpp",
+  "file": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build/include/borealis_rviz/moc_rviz.cpp"
+},
+
+{
+  "directory": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build",
+  "command": "/bin/clang++-10  -DBOOST_ALL_NO_LIB -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"borealis_gui\\\" -Dborealis_gui_EXPORTS -I../include -Idevel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4 -I/usr/include/eigen3 -I/usr/include/OGRE/Overlay -I/usr/include/OGRE -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++  -Wl,--no-undefined -g -fPIC   -std=c++11 -fPIC -o CMakeFiles/borealis_gui.dir/include/borealis_rviz/moc_config_dialog.cpp.o -c /home/lv/ROS/ros-noetic-ws/src/borealis_gui/build/include/borealis_rviz/moc_config_dialog.cpp",
+  "file": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build/include/borealis_rviz/moc_config_dialog.cpp"
+},
+
+{
+  "directory": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build",
+  "command": "/bin/clang++-10  -DBOOST_ALL_NO_LIB -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"borealis_gui\\\" -Dborealis_gui_EXPORTS -I../include -Idevel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4 -I/usr/include/eigen3 -I/usr/include/OGRE/Overlay -I/usr/include/OGRE -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++  -Wl,--no-undefined -g -fPIC   -std=c++11 -fPIC -o CMakeFiles/borealis_gui.dir/include/borealis_pages/borealis_map_and_drone/moc_borealis_map_and_drone.cpp.o -c /home/lv/ROS/ros-noetic-ws/src/borealis_gui/build/include/borealis_pages/borealis_map_and_drone/moc_borealis_map_and_drone.cpp",
+  "file": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build/include/borealis_pages/borealis_map_and_drone/moc_borealis_map_and_drone.cpp"
+},
+
+{
+  "directory": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build",
+  "command": "/bin/clang++-10  -DBOOST_ALL_NO_LIB -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"borealis_gui\\\" -Dborealis_gui_EXPORTS -I../include -Idevel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4 -I/usr/include/eigen3 -I/usr/include/OGRE/Overlay -I/usr/include/OGRE -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++  -Wl,--no-undefined -g -fPIC   -std=c++11 -fPIC -o CMakeFiles/borealis_gui.dir/include/borealis_pages/borealis_smart_glove/moc_borealis_smart_glove.cpp.o -c /home/lv/ROS/ros-noetic-ws/src/borealis_gui/build/include/borealis_pages/borealis_smart_glove/moc_borealis_smart_glove.cpp",
+  "file": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build/include/borealis_pages/borealis_smart_glove/moc_borealis_smart_glove.cpp"
+},
+
+{
+  "directory": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build",
+  "command": "/bin/clang++-10  -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgmock_main_EXPORTS -isystem /usr/src/googletest/googlemock/include -isystem /usr/src/googletest/googlemock -isystem /usr/src/googletest/googletest/include -isystem /usr/src/googletest/googletest  -g -fPIC   -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls -std=c++11 -DGTEST_HAS_PTHREAD=1 -std=c++11 -o gtest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o -c /usr/src/googletest/googlemock/src/gmock_main.cc",
+  "file": "/usr/src/googletest/googlemock/src/gmock_main.cc"
+},
+
+{
+  "directory": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build",
+  "command": "/bin/clang++-10  -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgmock_EXPORTS -I/usr/src/googletest/googlemock/include -I/usr/src/googletest/googlemock -isystem /usr/src/googletest/googletest/include -isystem /usr/src/googletest/googletest  -g -fPIC   -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls -std=c++11 -DGTEST_HAS_PTHREAD=1 -std=c++11 -o gtest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /usr/src/googletest/googlemock/src/gmock-all.cc",
+  "file": "/usr/src/googletest/googlemock/src/gmock-all.cc"
+},
+
+{
+  "directory": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build",
+  "command": "/bin/clang++-10  -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgtest_main_EXPORTS -isystem /usr/src/googletest/googletest/include -isystem /usr/src/googletest/googletest  -g -fPIC   -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls -std=c++11 -DGTEST_HAS_PTHREAD=1 -std=c++11 -o gtest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /usr/src/googletest/googletest/src/gtest_main.cc",
+  "file": "/usr/src/googletest/googletest/src/gtest_main.cc"
+},
+
+{
+  "directory": "/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build",
+  "command": "/bin/clang++-10  -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgtest_EXPORTS -I/usr/src/googletest/googletest/include -I/usr/src/googletest/googletest  -g -fPIC   -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls -std=c++11 -std=c++11 -o gtest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o -c /usr/src/googletest/googletest/src/gtest-all.cc",
+  "file": "/usr/src/googletest/googletest/src/gtest-all.cc"
+}
+]

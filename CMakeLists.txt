@@ -1,13 +1,14 @@
 cmake_minimum_required(VERSION 3.0.2)
 
-project(rqt_interactive_image_view)
+project(borealis_gui)
 
 add_compile_options(-std=c++11)
 
 # Load catkin and all dependencies required for this package
-find_package(catkin REQUIRED COMPONENTS rqt_gui rqt_gui_cpp image_transport sensor_msgs geometry_msgs cv_bridge rviz)
+find_package(catkin REQUIRED COMPONENTS roscpp rqt_gui rqt_gui_cpp image_transport sensor_msgs geometry_msgs cv_bridge rqt_rviz rviz)
 find_package(Boost REQUIRED COMPONENTS program_options)
 link_directories(${Boost_LIBRARY_DIRS})
+
 
 if("${qt_gui_cpp_USE_QT_MAJOR_VERSION} " STREQUAL "5 ")
   find_package(Qt5Widgets REQUIRED)
@@ -16,27 +17,39 @@ else()
   include(${QT_USE_FILE})
 endif()
 
-set(rqt_interactive_image_view_SRCS
-  src/rqt_interactive_image_view/image_view.cpp
-  src/rqt_interactive_image_view/ratio_layouted_frame.cpp
-  src/rqt_interactive_image_view/interactive_components.cpp
-  src/interactive_rqt_rviz/rviz.cpp 
-  src/interactive_rqt_rviz/config_dialog.cpp
+set(borealis_gui_SRCS
+  src/main_gui.cpp
+
+  src/image_frame/ratio_layouted_frame.cpp
+  src/image_frame/image_interactive_layout.cpp
+
+  src/borealis_rviz/rviz.cpp 
+  src/borealis_rviz/config_dialog.cpp
+
+  src/borealis_pages/borealis_map_and_drone/borealis_map_and_drone.cpp
+  src/borealis_pages/borealis_smart_glove/borealis_smart_glove.cpp
 )
 
-set(rqt_interactive_image_view_HDRS
-  include/rqt_interactive_image_view/image_view.h
-  include/rqt_interactive_image_view/ratio_layouted_frame.h
-  include/rqt_interactive_image_view/interactive_components.h
-  include/interactive_rqt_rviz/rviz.h
-  include/interactive_rqt_rviz/config_dialog.h
+set(borealis_gui_HDRS
+  include/main_gui.h
+
+  include/image_frame/ratio_layouted_frame.h
+  include/image_frame/image_interactive_layout.h
+
+  include/borealis_rviz/rviz.h
+  include/borealis_rviz/config_dialog.h
+
+  include/borealis_pages/borealis_map_and_drone/borealis_map_and_drone.h
+  include/borealis_pages/borealis_smart_glove/borealis_smart_glove.h
   )
 
-set(rqt_interactive_image_view_UIS
-  resource/image_view.ui
-)
+set(CMAKE_CXX_FLAGS "-Wl,--no-undefined")
 
-set(rqt_interactive_image_view_INCLUDE_DIRECTORIES
+# set(borealis_gui_UIS
+#   resource/image_view.ui
+# )
+
+set(borealis_gui_INCLUDE_DIRECTORIES
   include
   "${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}"
 )
@@ -45,29 +58,32 @@ if(NOT EXISTS "${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}")
 endif()
 
 catkin_package(
-  INCLUDE_DIRS ${rqt_interactive_image_view_INCLUDE_DIRECTORIES}
+  INCLUDE_DIRS ${borealis_gui_INCLUDE_DIRECTORIES}
   LIBRARIES ${PROJECT_NAME}
-  CATKIN_DEPENDS rqt_gui rqt_gui_cpp image_transport sensor_msgs cv_bridge geometry_msgs rviz
+  CATKIN_DEPENDS roscpp rqt_gui rqt_gui_cpp image_transport sensor_msgs cv_bridge geometry_msgs rviz rqt_rviz
 )
 catkin_python_setup()
 
 if("${qt_gui_cpp_USE_QT_MAJOR_VERSION} " STREQUAL "5 ")
-  qt5_wrap_cpp(rqt_interactive_image_view_MOCS ${rqt_interactive_image_view_HDRS})
+  qt5_wrap_cpp(borealis_gui_MOCS ${borealis_gui_HDRS})
 else()
-  qt4_wrap_cpp(rqt_interactive_image_view_MOCS ${rqt_interactive_image_view_HDRS})
+  qt4_wrap_cpp(borealis_gui_MOCS ${borealis_gui_HDRS})
 endif()
 # ensure generated header files are being created in the devel space
 set(_cmake_current_binary_dir "${CMAKE_CURRENT_BINARY_DIR}")
 set(CMAKE_CURRENT_BINARY_DIR "${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}")
-if("${qt_gui_cpp_USE_QT_MAJOR_VERSION} " STREQUAL "5 ")
-  qt5_wrap_ui(rqt_interactive_image_view_UIS_H ${rqt_interactive_image_view_UIS})
-else()
-  qt4_wrap_ui(rqt_interactive_image_view_UIS_H ${rqt_interactive_image_view_UIS})
-endif()
+# if("${qt_gui_cpp_USE_QT_MAJOR_VERSION} " STREQUAL "5 ")
+#   qt5_wrap_ui(borealis_gui_UIS_H ${borealis_gui_UIS})
+# else()
+#   qt4_wrap_ui(borealis_gui_UIS_H ${borealis_gui_UIS})
+# endif()
 set(CMAKE_CURRENT_BINARY_DIR "${_cmake_current_binary_dir}")
 
-include_directories(${rqt_interactive_image_view_INCLUDE_DIRECTORIES} ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
-add_library(${PROJECT_NAME} ${rqt_interactive_image_view_SRCS} ${rqt_interactive_image_view_MOCS} ${rqt_interactive_image_view_UIS_H})
+# FIND_LIBRARY(RQT_RVIZ_LIBRARY rqt_rviz /opt/ros/noetic/lib/)
+# message(STATUS "rqt_rviz ${RQT_RVIZ_LIBRARY}")
+
+include_directories(${borealis_gui_INCLUDE_DIRECTORIES} ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
+add_library(${PROJECT_NAME} ${borealis_gui_SRCS} ${borealis_gui_MOCS})
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${Boost_LIBRARIES})
 if("${qt_gui_cpp_USE_QT_MAJOR_VERSION} " STREQUAL "5 ")
   target_link_libraries(${PROJECT_NAME} Qt5::Widgets)
@@ -92,10 +108,12 @@ install(TARGETS ${PROJECT_NAME}
   RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION}
 )
 
-catkin_install_python(PROGRAMS scripts/rqt_interactive_image_view
+catkin_install_python(PROGRAMS scripts/borealis_gui
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
 install(DIRECTORY include/${PROJECT_NAME}/
   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
 )
+
+

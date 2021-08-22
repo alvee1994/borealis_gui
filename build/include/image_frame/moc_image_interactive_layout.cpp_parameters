@@ -1,0 +1,6 @@
+-DROS_BUILD_SHARED_LIBS=1
+-DROS_PACKAGE_NAME="borealis_gui"
+-DROSCONSOLE_BACKEND_LOG4CXX
+-o
+/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build/include/image_frame/moc_image_interactive_layout.cpp
+/home/lv/ROS/ros-noetic-ws/src/borealis_gui/include/image_frame/image_interactive_layout.h

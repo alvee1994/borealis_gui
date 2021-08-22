@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/lv/ROS/ros-noetic-ws/src/borealis_gui/build/devel/setup.sh

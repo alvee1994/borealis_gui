@@ -1,0 +1,6 @@
+-DROS_BUILD_SHARED_LIBS=1
+-DROS_PACKAGE_NAME="borealis_gui"
+-DROSCONSOLE_BACKEND_LOG4CXX
+-o
+/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build/include/borealis_rviz/moc_config_dialog.cpp
+/home/lv/ROS/ros-noetic-ws/src/borealis_gui/include/borealis_rviz/config_dialog.h

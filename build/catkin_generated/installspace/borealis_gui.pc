@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: borealis_gui
+Description: Description of borealis_gui
+Version: 1.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lborealis_gui
+Requires: roscpp rqt_gui rqt_gui_cpp image_transport sensor_msgs cv_bridge geometry_msgs rviz rqt_rviz

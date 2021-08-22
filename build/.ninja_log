@@ -1,0 +1,20 @@
+# ninja log v5
+2	9	1629447976290573968	include/borealis_pages/borealis_map_and_drone/moc_borealis_map_and_drone.cpp	2dc68b02f5e81110
+1	10	1629447976290573968	include/moc_main_gui.cpp	78feeac22a89683e
+1	10	1629447976290573968	include/image_frame/moc_ratio_layouted_frame.cpp	3de34a25e491a655
+2	10	1629447976290573968	include/image_frame/moc_image_interactive_layout.cpp	4a7ed6ec405da960
+2	10	1629447976290573968	include/borealis_rviz/moc_config_dialog.cpp	3fad395447e5d121
+2	10	1629447976290573968	include/borealis_rviz/moc_rviz.cpp	27da3830805aafdf
+12	3198	1629447979464292509	CMakeFiles/borealis_gui.dir/include/image_frame/moc_ratio_layouted_frame.cpp.o	3cdbf3878dc9800b
+13	3317	1629447979584493281	CMakeFiles/borealis_gui.dir/include/borealis_rviz/moc_config_dialog.cpp.o	3538430a9bcaa556
+11	3358	1629447979628566897	CMakeFiles/borealis_gui.dir/src/borealis_rviz/config_dialog.cpp.o	1e30ff3743fedbe
+12	6139	1629447982396895004	CMakeFiles/borealis_gui.dir/include/borealis_rviz/moc_rviz.cpp.o	db7034ba5dd66a2c
+13	7996	1629447984247516643	CMakeFiles/borealis_gui.dir/include/borealis_pages/borealis_map_and_drone/moc_borealis_map_and_drone.cpp.o	530733f82aff9fcb
+10	8458	1629447984708137438	CMakeFiles/borealis_gui.dir/src/borealis_rviz/rviz.cpp.o	8bead04f31453916
+9	3046	1629448035289805384	CMakeFiles/borealis_gui.dir/include/image_frame/moc_ratio_layouted_frame.cpp.o	3cdbf3878dc9800b
+11	3250	1629448035494038164	CMakeFiles/borealis_gui.dir/include/borealis_rviz/moc_config_dialog.cpp.o	3538430a9bcaa556
+7	3531	1629448035770353101	CMakeFiles/borealis_gui.dir/src/image_frame/ratio_layouted_frame.cpp.o	e701285b40679a
+8	3591	1629448035834426130	CMakeFiles/borealis_gui.dir/src/borealis_rviz/config_dialog.cpp.o	1e30ff3743fedbe
+10	5629	1629448037864686366	CMakeFiles/borealis_gui.dir/include/borealis_rviz/moc_rviz.cpp.o	db7034ba5dd66a2c
+11	7158	1629448039386327908	CMakeFiles/borealis_gui.dir/include/borealis_pages/borealis_map_and_drone/moc_borealis_map_and_drone.cpp.o	530733f82aff9fcb
+8	8166	1629448040387385796	CMakeFiles/borealis_gui.dir/src/borealis_rviz/rviz.cpp.o	8bead04f31453916
