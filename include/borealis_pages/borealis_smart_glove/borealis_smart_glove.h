@@ -14,15 +14,14 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
+#include <QFormLayout>
+#include <QLabel>
 
 #include <vector>
 #include <memory>
 
 #include <pluginlib/class_list_macros.h>
 #include <sensor_msgs/image_encodings.h>
-
-#include <actionlib/client/simple_action_client.h>
-#include <actionlib/client/terminal_state.h>
 
 #include <QFileDialog>
 #include <QMessageBox>
@@ -39,22 +38,29 @@ namespace borealis_smart_glove {
             void typeNewModelName();
 
             QVBoxLayout* setGloveSelectLayout();
+            QFormLayout* setButtonLayout();
             void setRVizLayout();
 
         protected:
-            QVBoxLayout* verticalLayout;
-            QHBoxLayout* horizontalLayout;
+            QVBoxLayout* vertical_layout;
+            QHBoxLayout* horizontal_layout;
 
-            QVBoxLayout* verticalRVizLayout;
-            std::shared_ptr<borealis_rviz::RViz> rvizPointer;
+            QVBoxLayout* vertical_rviz_layout;
+            std::shared_ptr<borealis_rviz::RViz> rviz_pointer;
             ros::NodeHandlePtr node;
 
             // Glove selection box
-            QVBoxLayout* gloveVerticalLayout;
+            QVBoxLayout* glove_vertical_layout;
+            QFormLayout* button_layout;
             QPushButton* scan;
             QPushButton* disconnect;
-            QComboBox* selectDevice;
-            QComboBox* selectModel;
+            QComboBox* select_device;
+            QComboBox* select_model;
+
+            QLabel* click_to_scan;
+            QLabel* click_to_disconnect;
+            QLabel* select_device_to_connect;
+            QLabel* select_model_to_use;
             
     };
 }

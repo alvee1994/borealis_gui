@@ -4,7 +4,7 @@ namespace borealis_smart_glove
 {
     BorealisSmartGlove::BorealisSmartGlove(ros::NodeHandlePtr rosNode, std::shared_ptr<borealis_rviz::RViz> rvizPtr)
         : node(rosNode),
-          rvizPointer(rvizPtr)
+          rviz_pointer(rvizPtr)
     {
         // overall horizontal layout
         // bluetooth vertical layout
@@ -19,38 +19,54 @@ namespace borealis_smart_glove
         this->setEnabled(true);
         this->setGeometry(0, 0, 600, 600);
 
-        verticalLayout = new QVBoxLayout(this);
-        horizontalLayout = new QHBoxLayout();
+        vertical_layout = new QVBoxLayout(this);
+        horizontal_layout = new QHBoxLayout();
 
-        horizontalLayout->addLayout(setGloveSelectLayout());
-        horizontalLayout->addWidget(rvizPointer->rvizFrameWidget_);
+        horizontal_layout->addLayout(setGloveSelectLayout());
+        horizontal_layout->addWidget(rviz_pointer->rvizFrameWidget_);
         
-        verticalLayout->addLayout(horizontalLayout);
+        vertical_layout->addLayout(horizontal_layout);
     };
 
     QVBoxLayout* BorealisSmartGlove::setGloveSelectLayout()
+    {
+        glove_vertical_layout = new QVBoxLayout();
+        glove_vertical_layout->addLayout(setButtonLayout());
+        glove_vertical_layout->setContentsMargins(0,20,0,20);
+
+        return glove_vertical_layout;
+    };
+
+    QFormLayout* BorealisSmartGlove::setButtonLayout()
     {
         // button for scan
         // dropdown to select device
         // dropdown to select model
         // button stop and disconnect
 
-        scan = new QPushButton();
-        disconnect = new QPushButton();
+        click_to_scan = new QLabel("Scan for new devices");
+        scan = new QPushButton("Scan");
 
-        selectDevice = new QComboBox();
-        selectDevice->setSizeAdjustPolicy(QComboBox::AdjustToContents);
+        click_to_disconnect = new QLabel("Disconnect from device");
+        disconnect = new QPushButton("Disconnect");
 
-        selectModel = new QComboBox();
-        selectModel->setSizeAdjustPolicy(QComboBox::AdjustToContents);
+        select_device_to_connect = new QLabel("Select a device");
+        select_device = new QComboBox();
+        select_device->setSizeAdjustPolicy(QComboBox::AdjustToContents);
 
-        gloveVerticalLayout = new QVBoxLayout();
-        gloveVerticalLayout->addWidget(scan);
-        gloveVerticalLayout->addWidget(selectDevice);
-        gloveVerticalLayout->addWidget(selectModel);
-        gloveVerticalLayout->addWidget(disconnect);
+        select_model_to_use = new QLabel("Select a model");
+        select_model = new QComboBox();
+        select_model->setSizeAdjustPolicy(QComboBox::AdjustToContents);
 
-        return gloveVerticalLayout;
+        button_layout = new QFormLayout();
+        button_layout->addRow(click_to_scan, scan);
+        button_layout->addRow(select_device_to_connect, select_device);
+        button_layout->addRow(select_model_to_use, select_model);
+        button_layout->addRow(click_to_disconnect, disconnect);
+        
+        return button_layout;
     };
+
+
 
 }

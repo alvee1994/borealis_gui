@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "gtest/lib/libgtestd.so"
+			"path" : "gtest/lib/libgtest_maind.so"
 		}
 	],
 	"backtrace" : 3,
@@ -13,6 +13,7 @@
 			"add_library",
 			"cxx_library_with_type",
 			"cxx_library",
+			"target_link_libraries",
 			"add_compile_options",
 			"set_target_properties",
 			"include_directories"
@@ -31,7 +32,7 @@
 			{
 				"command" : 2,
 				"file" : 1,
-				"line" : 128,
+				"line" : 130,
 				"parent" : 0
 			},
 			{
@@ -47,22 +48,28 @@
 				"parent" : 2
 			},
 			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 142,
+				"parent" : 0
+			},
+			{
 				"file" : 2
 			},
 			{
-				"command" : 3,
+				"command" : 4,
 				"file" : 2,
 				"line" : 5,
-				"parent" : 4
+				"parent" : 5
 			},
 			{
-				"command" : 4,
+				"command" : 5,
 				"file" : 0,
 				"line" : 181,
 				"parent" : 2
 			},
 			{
-				"command" : 5,
+				"command" : 6,
 				"file" : 1,
 				"line" : 118,
 				"parent" : 0
@@ -78,11 +85,15 @@
 					"fragment" : "-g -fPIC  "
 				},
 				{
-					"fragment" : "-Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls"
+					"fragment" : "-Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"fragment" : "-std=c++11"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-DGTEST_HAS_PTHREAD=1"
 				},
 				{
 					"fragment" : "-std=c++11"
@@ -91,21 +102,23 @@
 			"defines" : 
 			[
 				{
-					"backtrace" : 6,
+					"backtrace" : 7,
 					"define" : "GTEST_CREATE_SHARED_LIBRARY=1"
 				},
 				{
-					"define" : "gtest_EXPORTS"
+					"define" : "gtest_main_EXPORTS"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 7,
+					"backtrace" : 8,
+					"isSystem" : true,
 					"path" : "/usr/src/googletest/googletest/include"
 				},
 				{
-					"backtrace" : 7,
+					"backtrace" : 8,
+					"isSystem" : true,
 					"path" : "/usr/src/googletest/googletest"
 				}
 			],
@@ -116,7 +129,14 @@
 			]
 		}
 	],
-	"id" : "gtest::@b738d542747fbb7ea6e3",
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 4,
+			"id" : "gtest::@b738d542747fbb7ea6e3"
+		}
+	],
+	"id" : "gtest_main::@b738d542747fbb7ea6e3",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -126,14 +146,23 @@
 				"role" : "flags"
 			},
 			{
+				"fragment" : "-Wl,-rpath,/home/lv/ROS/ros-noetic-ws/src/borealis_gui/build/gtest/lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "../lib/libgtestd.so",
+				"role" : "libraries"
+			},
+			{
 				"fragment" : "-lpthread",
 				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
-	"name" : "gtest",
-	"nameOnDisk" : "libgtestd.so",
+	"name" : "gtest_main",
+	"nameOnDisk" : "libgtest_maind.so",
 	"paths" : 
 	{
 		"build" : "gtest/googletest",
@@ -154,7 +183,7 @@
 		{
 			"backtrace" : 3,
 			"compileGroupIndex" : 0,
-			"path" : "/usr/src/googletest/googletest/src/gtest-all.cc",
+			"path" : "/usr/src/googletest/googletest/src/gtest_main.cc",
 			"sourceGroupIndex" : 0
 		}
 	],

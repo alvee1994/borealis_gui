@@ -9,7 +9,6 @@ find_package(catkin REQUIRED COMPONENTS roscpp rqt_gui rqt_gui_cpp image_transpo
 find_package(Boost REQUIRED COMPONENTS program_options)
 link_directories(${Boost_LIBRARY_DIRS})
 
-
 if("${qt_gui_cpp_USE_QT_MAJOR_VERSION} " STREQUAL "5 ")
   find_package(Qt5Widgets REQUIRED)
 else()
@@ -28,6 +27,7 @@ set(borealis_gui_SRCS
 
   src/borealis_pages/borealis_map_and_drone/borealis_map_and_drone.cpp
   src/borealis_pages/borealis_smart_glove/borealis_smart_glove.cpp
+  src/borealis_pages/borealis_smart_glove/smart_glove_client.cpp
 )
 
 set(borealis_gui_HDRS
@@ -41,6 +41,7 @@ set(borealis_gui_HDRS
 
   include/borealis_pages/borealis_map_and_drone/borealis_map_and_drone.h
   include/borealis_pages/borealis_smart_glove/borealis_smart_glove.h
+  include/borealis_pages/borealis_smart_glove/smart_glove_client.h
   )
 
 set(CMAKE_CXX_FLAGS "-Wl,--no-undefined")
