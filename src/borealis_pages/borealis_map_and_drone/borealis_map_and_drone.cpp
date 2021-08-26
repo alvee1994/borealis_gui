@@ -3,30 +3,30 @@
 
 namespace borealis_map_and_drone {
 
-    BorealisMapAndDrone::BorealisMapAndDrone(ros::NodeHandlePtr rosNode, std::shared_ptr<borealis_rviz::RViz> rvizPtr)
-    : node(rosNode),
-    rvizPointer(rvizPtr)
+    BorealisMapAndDrone::BorealisMapAndDrone(ros::NodeHandlePtr rosNode)
+    : node(rosNode)
     {
         this->setEnabled(true);
         this->setGeometry(0,0,600,600);
 
         horizontalLayout = new QHBoxLayout(this);
         verticalLayout = new QVBoxLayout();
-        tab = new QTabWidget();
 
-        droneAndRvizTab();
         droneVideoLayout();
 
         verticalLayout->setMargin(10);
         horizontalLayout->addLayout(verticalLayout);
-        horizontalLayout->addWidget(tab, 2);
     }
 
-    void BorealisMapAndDrone::droneAndRvizTab(){
-        tab->addTab(rvizPointer->rvizFrameWidget_, "RVizTab");
-        ImageInteractiveLayout* myTabLayout_D = new ImageInteractiveLayout(this, node);
-        tab->addTab(myTabLayout_D->scroll_area, "image_viewer");
-    };
+    void BorealisMapAndDrone::enterPage()
+    {
+
+    }
+
+    void BorealisMapAndDrone::exitPage()
+    {
+
+    }
 
     void BorealisMapAndDrone::droneVideoLayout(){
         ImageInteractiveLayout* mylayout_A = new ImageInteractiveLayout(this, node);

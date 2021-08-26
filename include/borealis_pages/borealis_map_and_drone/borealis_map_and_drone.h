@@ -31,15 +31,14 @@ namespace borealis_map_and_drone {
         Q_OBJECT
 
         public:
-            BorealisMapAndDrone(ros::NodeHandlePtr rosNode, std::shared_ptr<borealis_rviz::RViz> rvizPtr);
-            void droneAndRvizTab();
+            BorealisMapAndDrone(ros::NodeHandlePtr rosNode);
             void droneVideoLayout();
+            void exitPage();
+            void enterPage();
 
         protected:
             QHBoxLayout* horizontalLayout;
             QVBoxLayout* verticalLayout;
-            QTabWidget* tab;
-            std::shared_ptr<borealis_rviz::RViz> rvizPointer;
             ros::NodeHandlePtr node;
             
     };

@@ -2,9 +2,8 @@
 
 namespace borealis_smart_glove
 {
-    BorealisSmartGlove::BorealisSmartGlove(ros::NodeHandlePtr rosNode, std::shared_ptr<borealis_rviz::RViz> rvizPtr)
-        : node(rosNode),
-          rviz_pointer(rvizPtr)
+    BorealisSmartGlove::BorealisSmartGlove(ros::NodeHandlePtr rosNode)
+        : node(rosNode)
     {
         // overall horizontal layout
         // bluetooth vertical layout
@@ -22,10 +21,7 @@ namespace borealis_smart_glove
         vertical_layout = new QVBoxLayout(this);
         horizontal_layout = new QHBoxLayout();
 
-        horizontal_layout->addLayout(setGloveSelectLayout());
-        horizontal_layout->addWidget(rviz_pointer->rvizFrameWidget_);
-        
-        vertical_layout->addLayout(horizontal_layout);
+        vertical_layout->addLayout(setGloveSelectLayout());
     };
 
     QVBoxLayout* BorealisSmartGlove::setGloveSelectLayout()
@@ -67,6 +63,15 @@ namespace borealis_smart_glove
         return button_layout;
     };
 
+    void BorealisSmartGlove::enterPage()
+    {
+
+    }
+
+    void BorealisSmartGlove::exitPage()
+    {
+
+    }
 
 
 }

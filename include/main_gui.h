@@ -37,6 +37,9 @@
 #include <ui_image_view.h>
 #include <borealis_rviz/rviz.h>
 
+#include <borealis_pages/borealis_map_and_drone/borealis_map_and_drone.h>
+#include <borealis_pages/borealis_smart_glove/borealis_smart_glove.h>
+
 #include <image_transport/image_transport.h>
 #include <ros/package.h>
 #include <ros/macros.h>
@@ -56,6 +59,8 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QStackedWidget>
+#include <QPushButton>
+#include <QFormLayout>
 
 #include <vector>
 #include <memory>
@@ -73,25 +78,43 @@ public:
   BorealisGui();
 
   virtual void initPlugin(qt_gui_cpp::PluginContext& context);
-
   virtual void shutdownPlugin();
-
   void parseArguments(qt_gui_cpp::PluginContext& context, std::shared_ptr<borealis_rviz::RViz> rvizF);
+  void setNavigationConnections();
+  void setRvizTab();
+  
 
-  QStackedWidget* widget_;
+  QFormLayout* setNavigationButtonLayout();
 
+  QStackedWidget* stacked_widget;
+  QWidget* widget_;
   image_transport::Subscriber subscriber_;
-
   cv::Mat conversion_mat_;
+
 
   // bool hide_menu_;
   // std::string display_config_;
   // bool ogre_log_;
 
+public slots:
+  void smartGlovePage();
+  void mapAndDronePage();
+
 private:
 
-  QHBoxLayout* horizontalLayout;
-  QVBoxLayout* verticalLayout;
+  QTabWidget* tab;
+  std::shared_ptr<borealis_rviz::RViz> rviz_frame;
+  ros::NodeHandlePtr node_handle_pointer;
+
+  borealis_map_and_drone::BorealisMapAndDrone* map_and_drone_page;
+  borealis_smart_glove::BorealisSmartGlove* smart_glove_page;
+  
+  QHBoxLayout* horizontal_layout;
+  QVBoxLayout* vertical_layout;
+  QFormLayout* navigation_button_layout;
+
+  QPushButton* smart_glove_button;
+  QPushButton* map_and_drone_button;
 
   enum RotateState {
     ROTATE_0 = 0,

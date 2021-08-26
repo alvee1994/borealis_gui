@@ -68,6 +68,10 @@
         "typeinfo": "cpp",
         "variant": "cpp",
         "bit": "cpp",
-        "qtextlayout": "cpp"
+        "qtextlayout": "cpp",
+        "csignal": "cpp",
+        "forward_list": "cpp",
+        "future": "cpp",
+        "valarray": "cpp"
     }
 }

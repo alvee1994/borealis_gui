@@ -33,9 +33,10 @@ namespace borealis_smart_glove {
         Q_OBJECT
 
         public:
-            BorealisSmartGlove(ros::NodeHandlePtr rosNode, std::shared_ptr<borealis_rviz::RViz> rvizPtr);
+            BorealisSmartGlove(ros::NodeHandlePtr rosNode);
             void selectGlovesTab();
-            void typeNewModelName();
+            void exitPage();
+            void enterPage();
 
             QVBoxLayout* setGloveSelectLayout();
             QFormLayout* setButtonLayout();
@@ -46,7 +47,6 @@ namespace borealis_smart_glove {
             QHBoxLayout* horizontal_layout;
 
             QVBoxLayout* vertical_rviz_layout;
-            std::shared_ptr<borealis_rviz::RViz> rviz_pointer;
             ros::NodeHandlePtr node;
 
             // Glove selection box

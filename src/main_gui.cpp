@@ -32,8 +32,6 @@
 
 #include <main_gui.h>
 #include <image_frame/image_interactive_layout.h>
-#include <borealis_pages/borealis_map_and_drone/borealis_map_and_drone.h>
-#include <borealis_pages/borealis_smart_glove/borealis_smart_glove.h>
 
 #include <pluginlib/class_list_macros.h>
 #include <ros/master.h>
@@ -61,7 +59,7 @@ BorealisGui::BorealisGui()
 
 void BorealisGui::initPlugin(qt_gui_cpp::PluginContext& context)
 {
-  widget_ = new QStackedWidget();
+  widget_ = new QWidget();
   
   if (context.serialNumber() > 1)
   {
@@ -69,22 +67,73 @@ void BorealisGui::initPlugin(qt_gui_cpp::PluginContext& context)
   }
   context.addWidget(widget_);
 
-  ros::NodeHandlePtr node = boost::make_shared<ros::NodeHandle>(getNodeHandle());
-  image_transport::ImageTransport it(*node);
+  node_handle_pointer = boost::make_shared<ros::NodeHandle>(getNodeHandle());
+  image_transport::ImageTransport it(*node_handle_pointer);
 
-  std::shared_ptr<borealis_rviz::RViz> rvizFrame = std::make_shared<borealis_rviz::RViz>();
-  parseArguments(context, rvizFrame);
-  rvizFrame->initPlugin(context);
+  rviz_frame = std::make_shared<borealis_rviz::RViz>();
+  parseArguments(context, rviz_frame);
+  rviz_frame->initPlugin(context);
 
-  // borealis_map_and_drone::BorealisMapAndDrone* map_and_drone_page = new borealis_map_and_drone::BorealisMapAndDrone(node, rvizFrame);
-  // widget_->addWidget(map_and_drone_page);
 
-  borealis_smart_glove::BorealisSmartGlove* smart_glove_page = new borealis_smart_glove::BorealisSmartGlove(node, rvizFrame);
-  widget_->addWidget(smart_glove_page);
+  vertical_layout = new QVBoxLayout(widget_);
+  horizontal_layout = new QHBoxLayout();
+  stacked_widget = new QStackedWidget();
+  tab = new QTabWidget();
   
+  // instantiate the pages
+  smart_glove_page = new borealis_smart_glove::BorealisSmartGlove(node_handle_pointer);
+  stacked_widget->addWidget(smart_glove_page);
+  map_and_drone_page = new borealis_map_and_drone::BorealisMapAndDrone(node_handle_pointer);
+  stacked_widget->addWidget(map_and_drone_page);
+
+  // the RViz tab
+  setRvizTab();
+
+  // add widgets and layouts to the main layout
+  horizontal_layout->addWidget(stacked_widget);
+  horizontal_layout->addWidget(tab, 2);
+  vertical_layout->addLayout(horizontal_layout);
+  vertical_layout->addLayout(setNavigationButtonLayout());
+
+  // set the connections
+  setNavigationConnections();
 };
 
+void BorealisGui::setRvizTab()
+{
+    tab->insertTab(0, rviz_frame->rvizFrameWidget_, "RVizTab");
+    ImageInteractiveLayout* myTabLayout_D = new ImageInteractiveLayout(this->widget_, node_handle_pointer);
+    tab->insertTab(1, myTabLayout_D->scroll_area, "image_viewer");
+    
+};
 
+QFormLayout* BorealisGui::setNavigationButtonLayout(){
+  smart_glove_button = new QPushButton("Smart Glove");
+  map_and_drone_button = new QPushButton("Map and Drone");
+
+  navigation_button_layout = new QFormLayout();
+  navigation_button_layout->addRow(smart_glove_button, map_and_drone_button);
+
+  return navigation_button_layout;
+}
+
+void BorealisGui::setNavigationConnections(){
+  connect(this->map_and_drone_button, SIGNAL(pressed()), this, SLOT(mapAndDronePage()));
+  connect(this->smart_glove_button, SIGNAL(pressed()), this, SLOT(smartGlovePage()));
+}
+
+// best to not to the following. have a way for pages to know if there are current
+void BorealisGui::smartGlovePage(){
+  this->map_and_drone_page->exitPage();
+  this->smart_glove_page->enterPage();
+  this->stacked_widget->setCurrentIndex(0);
+}
+
+void BorealisGui::mapAndDronePage(){
+  this->smart_glove_page->exitPage();
+  this->map_and_drone_page->enterPage();
+  this->stacked_widget->setCurrentIndex(1);
+}
 
 void BorealisGui::parseArguments(qt_gui_cpp::PluginContext& context, std::shared_ptr<borealis_rviz::RViz> rvizF)
 {
