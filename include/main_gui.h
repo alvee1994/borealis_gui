@@ -34,7 +34,6 @@
 #define borealis_gui__BorealisGui_H
 
 #include <rqt_gui_cpp/plugin.h>
-#include <ui_image_view.h>
 #include <borealis_rviz/rviz.h>
 
 #include <borealis_pages/borealis_map_and_drone/borealis_map_and_drone.h>

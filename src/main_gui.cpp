@@ -33,6 +33,7 @@
 #include <main_gui.h>
 #include <image_frame/image_interactive_layout.h>
 
+
 #include <pluginlib/class_list_macros.h>
 #include <ros/master.h>
 #include <sensor_msgs/image_encodings.h>

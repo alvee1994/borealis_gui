@@ -588,6 +588,9 @@ std_msgs_DIR:PATH=/opt/ros/noetic/share/std_msgs/cmake
 //The directory containing a CMake configuration file for std_srvs.
 std_srvs_DIR:PATH=/opt/ros/noetic/share/std_srvs/cmake
 
+//The directory containing a CMake configuration file for stretchsense_server_action_msgs.
+stretchsense_server_action_msgs_DIR:PATH=/home/lv/ROS/ros-noetic-ws/devel/share/stretchsense_server_action_msgs/cmake
+
 //The directory containing a CMake configuration file for tf2.
 tf2_DIR:PATH=/opt/ros/noetic/share/tf2/cmake
 

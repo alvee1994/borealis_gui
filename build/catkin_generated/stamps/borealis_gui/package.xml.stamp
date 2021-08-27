@@ -22,7 +22,8 @@
   <build_depend>qtbase5-dev</build_depend>
   <build_depend>rviz</build_depend>
   <build_depend>rqt_rviz</build_depend>
-
+  <build_depend>stretchsense_server_action_msgs</build_depend>
+  <run_depend>stretchsense_server_action_msgs</run_depend>
   <run_depend>cv_bridge</run_depend>
   <run_depend>roscpp</run_depend>
   <run_depend>geometry_msgs</run_depend>

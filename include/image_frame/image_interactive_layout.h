@@ -1,7 +1,7 @@
 #pragma once
 
 #include <rqt_gui_cpp/plugin.h>
-#include <ui_image_view.h>
+// #include <ui_image_view.h>
 #include <image_frame/ratio_layouted_frame.h>
 
 #include <image_transport/image_transport.h>

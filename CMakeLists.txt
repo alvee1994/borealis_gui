@@ -5,7 +5,7 @@ project(borealis_gui)
 add_compile_options(-std=c++11)
 
 # Load catkin and all dependencies required for this package
-find_package(catkin REQUIRED COMPONENTS roscpp rqt_gui rqt_gui_cpp image_transport sensor_msgs geometry_msgs cv_bridge rqt_rviz rviz)
+find_package(catkin REQUIRED COMPONENTS stretchsense_server_action_msgs roscpp rqt_gui rqt_gui_cpp image_transport sensor_msgs geometry_msgs cv_bridge rqt_rviz rviz)
 find_package(Boost REQUIRED COMPONENTS program_options)
 link_directories(${Boost_LIBRARY_DIRS})
 
